@@ -1,5 +1,6 @@
-import { Text } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import useCars from "../hooks/useCars";
+import CarCard from "./CarCard";
 
 const CarGrid = () => {
   
@@ -8,13 +9,11 @@ const CarGrid = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      <ul>
-        {cars.map((car) => (
-          <li key={car.ID}>
-            {car.ID + " - " + car.manufacturer + " - " + car.model}
-          </li>
-        ))}
-      </ul>
+      <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} padding='10px' spacing={3}>
+        {cars.map((car) =>
+            <CarCard key={car.ID} car={car}/>
+        )}
+      </SimpleGrid>
     </>
   );
 };
