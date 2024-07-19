@@ -1,27 +1,9 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
 import { Text } from "@chakra-ui/react";
-
-interface Car {
-  ID: string;
-  manufacturer: string;
-  model: string;
-}
-
-interface FetchCarsResponse {
-  data: Car[];
-}
+import useCars from "../hooks/useCars";
 
 const CarGrid = () => {
-  const [cars, setCars] = useState<Car[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get<FetchCarsResponse>("/cars")
-      .then((res) => setCars(res.data))
-      .catch((err) => setError(err.message));
-  }, []);
+  
+  const {cars, error} = useCars();
 
   return (
     <>
