@@ -30,6 +30,7 @@ const useCars = () => {
     apiClient
       .get<FetchCarsResponse>("/cars", {signal: controller.signal})
       .then( (res) => {
+        console.log(res.data);
         setCars(res.data);
       })
       .catch((err) => {

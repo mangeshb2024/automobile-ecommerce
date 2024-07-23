@@ -2,6 +2,7 @@ import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import CarGrid from "./components/CarGrid";
 import Footer from "./components/Footer";
+import FilterList from "./components/FilterList";
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside">
-          SideBar
+        <GridItem area="aside" width="250px">
+          <FilterList />
         </GridItem>
       </Show>
       <GridItem area="main">
