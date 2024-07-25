@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+import { FilterCriteria } from "../components/FilterCard";
+import useData from "./useData";
 
 export interface Car {
     ID: string;
@@ -13,37 +12,20 @@ export interface Car {
     transmissionType: string;
     highlight_image: string;
 }
-  
-interface FetchCarsResponse {
-    data: Car[];
-}
 
-const useCars = () => {
-
-  const [cars, setCars] = useState<Car[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-
-    const controller = new AbortController();
-
-    apiClient
-      .get<FetchCarsResponse>("/cars", {signal: controller.signal})
-      .then( (res) => {
-        console.log(res.data);
-        setCars(res.data);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-    });
-
-    return () => controller.abort();
-
-  }, []);
-
-  return {cars, error};
-
+const useCars = (selectedFilters: FilterCriteria[]|null) => {
+    let params = new URLSearchParams();
+    if (selectedFilters) {
+      for (const criteria of selectedFilters){
+        const criteria_key = Object.keys(criteria)[0];
+        if (criteria[criteria_key].length > 0) {
+          for (const criteria_value of criteria[criteria_key]){
+            params.append(criteria_key, String(criteria_value));
+          }
+        }
+      }
+    }
+    return useData<Car>('/cars', {params: params}, [selectedFilters]);
 }
 
 export default useCars;

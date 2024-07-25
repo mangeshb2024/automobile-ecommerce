@@ -8,6 +8,15 @@ const NavBar = () => {
         <Image src={logo} boxSize="150px" width="260px"/>
       </a>
       <a href="./index.html">
+        <Heading fontSize={20}>About</Heading>
+      </a>
+      <a href="https://www.autocarindia.com/car-news">
+        <Heading fontSize={20}>What's New?</Heading>
+      </a>
+      <a href="./index.html">
+        <Heading fontSize={20}>Contact</Heading>
+      </a>
+      <a href="./index.html">
         <Heading fontSize={20}>Login</Heading>
       </a>
     </HStack>

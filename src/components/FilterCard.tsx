@@ -1,23 +1,80 @@
-import { Filter } from '../hooks/useFilters';
-import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react';
+import {
+  Box,
+  chakra,
+  Flex,
+  useCheckbox,
+  Text,
+  useCheckboxGroup,
+  Stack,
+  Heading,
+} from "@chakra-ui/react";
+import { Filter } from "../hooks/useFilters";
+import { useEffect } from "react";
+
+export interface FilterCriteria {
+    [key: string]: (string|number)[];
+}
 
 interface Props {
-    filter: Filter;
+  filter: Filter;
+  onChange(val: FilterCriteria): void;
 }
 
-const FilterCard = ({filter}: Props) => {
+function CustomCheckbox(props: any) {
+  const { state, getCheckboxProps, getInputProps, getLabelProps, htmlProps } =
+    useCheckbox(props);
+
   return (
-    <Card marginLeft={5}>
-        <CardHeader padding={1}>
-            <Heading size='md'>{filter.filterName}</Heading>
-        </CardHeader>
-        <CardBody padding={1}>
-            <ul>
-                {filter.filterValues.map(val => <li key={val}>{val}</li>)}
-            </ul>
-        </CardBody>
-    </Card>
-  )
+    <chakra.label
+      display="flex"
+      flexDirection="row"
+      alignItems="center"
+      gridColumnGap={2}
+      maxW="80"
+      bg="green.50"
+      border="1px solid"
+      borderColor="black"
+      rounded="lg"
+      px={3}
+      py={1}
+      cursor="pointer"
+      {...htmlProps}
+    >
+      <input {...getInputProps()} hidden />
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        border="2px solid"
+        borderColor="green.500"
+        w={4}
+        h={4}
+        {...getCheckboxProps()}
+      >
+        {state.isChecked && <Box w={2} h={2} bg="green.500" />}
+      </Flex>
+      <Text color="gray.700" {...getLabelProps()}>
+        {props.value}
+      </Text>
+    </chakra.label>
+  );
 }
 
-export default FilterCard
+const FilterCard = ({ filter, onChange }: Props) => {
+  const { value, getCheckboxProps } = useCheckboxGroup();
+
+  useEffect(() => {
+    onChange({[filter.filterName]: value});
+  }, [value]);
+
+  return (
+    <Stack>
+      <Heading as="h4" size="md">
+        {filter.filterName}
+      </Heading>
+      <Text>The selected checkboxes are: {value.sort().join(" and ")}</Text>
+      {filter.filterValues.map((val) => <CustomCheckbox key={val} value={val} {...getCheckboxProps({ value: val })} />)}
+    </Stack>
+  );
+};
+
+export default FilterCard;

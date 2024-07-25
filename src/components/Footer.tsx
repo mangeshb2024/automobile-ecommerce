@@ -10,15 +10,6 @@ const Footer = () => {
          <p>Copyright Fictional Corporation</p>
         </Stack>
       </a>
-      <a href="./index.html">
-        <Heading fontSize={20}>About</Heading>
-      </a>
-      <a href="https://www.autocarindia.com/car-news">
-        <Heading fontSize={20}>What's New?</Heading>
-      </a>
-      <a href="./index.html">
-        <Heading fontSize={20}>Contact</Heading>
-      </a>
     </HStack>
   )
 }

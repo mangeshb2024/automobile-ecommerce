@@ -29,7 +29,7 @@ const CarCard = ({ car}: Props) => {
   const backgroundColor =
     car.engine === "Electric"
       ? "#03fc8c"
-      : car.fuel.includes("Hybrid")
+      : car.engine === "Hybrid"
       ? "#03b5fc"
       : "#a2a8af";
 

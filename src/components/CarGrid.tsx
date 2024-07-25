@@ -1,16 +1,21 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import useCars from "../hooks/useCars";
 import CarCard from "./CarCard";
+import { FilterCriteria } from "./FilterCard";
 
-const CarGrid = () => {
+interface Props {
+  selectedFilters: FilterCriteria[] | null;
+}
+
+const CarGrid = ({selectedFilters}: Props) => {
   
-  const {cars, error} = useCars();
+  const {data, error} = useCars(selectedFilters);
 
   return (
     <>
       {error && <Text>{error}</Text>}
       <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} padding='10px' spacing={3}>
-        {cars.map((car) =>
+        {data.map((car) =>
             <CarCard key={car.ID} car={car}/>
         )}
       </SimpleGrid>
