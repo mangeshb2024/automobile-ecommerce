@@ -14,7 +14,6 @@ const FilterList = ({onChange}: Props) => {
   >();
 
   useEffect(() => {
-    console.log("Inside useEffect: ", filterCriteriaList);
     if(filterCriteriaList) onChange(filterCriteriaList);
   }, [filterCriteriaList]);
 
