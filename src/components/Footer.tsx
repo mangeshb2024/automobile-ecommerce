@@ -1,4 +1,4 @@
-import { Heading, HStack, Image, Stack } from "@chakra-ui/react"
+import { HStack, Image, Stack } from "@chakra-ui/react"
 import copyright_logo from '../assets/CopyrightLogo.png'
 
 const Footer = () => {

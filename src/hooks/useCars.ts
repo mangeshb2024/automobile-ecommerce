@@ -1,5 +1,6 @@
 import { FilterCriteria } from "../components/FilterCard";
 import useData from "./useData";
+import config from "../config/config.json"
 
 export interface Car {
     ID: string;
@@ -9,7 +10,7 @@ export interface Car {
     engine: string;
     fuel: string;
     transmission: string;
-    transmissionType: string;
+    transmissiontype: string;
     highlight_image: string;
 }
 
@@ -25,7 +26,8 @@ const useCars = (selectedFilters: FilterCriteria[]|null) => {
         }
       }
     }
-    return useData<Car>('/cars', {params: params}, [selectedFilters]);
+  
+    return useData<Car>(config.carEndpoint, {params: params}, [selectedFilters]);
 }
 
 export default useCars;

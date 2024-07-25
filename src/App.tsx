@@ -25,9 +25,11 @@ function App() {
         lg: '250px 1fr'
       }}
     >
-      <GridItem area="nav">
-        <NavBar />
-      </GridItem>
+      <Show above="md">
+        <GridItem area="nav">
+          <NavBar />
+        </GridItem>
+      </Show>
       <Show above="lg">
         <GridItem area="aside">
           <FilterList onChange={(filtersList) => setSelectedFilters(filtersList)}/>

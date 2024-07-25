@@ -1,0 +1,5 @@
+{
+    "baseURL": "https://d460h8gf70.execute-api.us-east-1.amazonaws.com/prod",
+    "carEndpoint": "/cars",
+    "filterEndpoint": "/filters"
+}

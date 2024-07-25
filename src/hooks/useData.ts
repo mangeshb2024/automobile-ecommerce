@@ -8,18 +8,16 @@ interface FetchResponse<T> {
 }
 
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
-  const [data, setData] = useState<T[]>([]);
+  const [data, setData] = useState<T[]>();
   const [error, setError] = useState("");
 
   useEffect(() => {
 
     const controller = new AbortController();
-
+console.log("endpoint: ", endpoint);
     apiClient
       .get<FetchResponse<T>>(endpoint, {signal: controller.signal, ...requestConfig})
-      .then( (res) => {
-        setData(res.data);
-      })
+      .then(res => setData(res.data))
       .catch((err) => {
         if (err instanceof CanceledError) return;
         setError(err.message);

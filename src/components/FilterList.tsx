@@ -23,7 +23,7 @@ const FilterList = ({onChange}: Props) => {
       {error && <Text>{error}</Text>}
       <Heading marginLeft={2}>Filters</Heading>
       <SimpleGrid columns={1} padding="10px" spacing={3}>
-        {data.map((filter) => (
+        {data && data.map((filter) => (
           <FilterCard
             onChange={(val) => {
               const val_key = Object.keys(val)[0];

@@ -20,10 +20,10 @@ const CarCard = ({ car}: Props) => {
 
   const [like, setLike] = useState(false);
 
-  const transmissionType =
+  const transmissiontype =
     car.engine === "Electric" ? null : car.transmission === "Manual" ? null : (
       <Heading as="h4" size="md">
-        {"Transmission Type: " + car.transmissionType}
+        {"Transmission Type: " + car.transmissiontype}
       </Heading>
     );
   const backgroundColor =
@@ -61,7 +61,7 @@ const CarCard = ({ car}: Props) => {
             <Heading as="h4" size="md">
               {"Transmission: " + car.transmission}
             </Heading>
-            {transmissionType}
+            {transmissiontype}
           </div>
           <VStack alignContent={'space-between'}>
             <ImageGallery></ImageGallery>
