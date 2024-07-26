@@ -71,7 +71,6 @@ const FilterCard = ({ filter, onChange }: Props) => {
       <Heading as="h4" size="md">
         {filter.filterName}
       </Heading>
-      <Text>The selected checkboxes are: {value.sort().join(" and ")}</Text>
       {filter.filterValues.map((val) => <CustomCheckbox key={val} value={val} {...getCheckboxProps({ value: val })} />)}
     </Stack>
   );
