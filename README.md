@@ -1,31 +1,14 @@
-# React + TypeScript + Vite
+**Automobile ECommerce**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Introduction**
+Automobile ECommerce project is about allowing users to browse different kinds of cars, provide information, and filter based on various criteria. The purpose of this project is to demonstrate hands on knowledge about different frontend and backend technologies. 
 
-Currently, two official plugins are available:
+Overview of the functionality
+The project aims to storage car related information and provide mechanism to access that information as and when needed. Various aspectes of the functionality are described below.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# automobile-ecommerce
+Storage
+Idea of the project is to have a persistent store for storing car related information including different attributes and static data.
+Compute
+API Management
+Frontend
+The project can be divided into two parts, frontend and backend. 
