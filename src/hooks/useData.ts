@@ -4,7 +4,8 @@ import { AxiosRequestConfig, CanceledError } from "axios";
 
 
 interface FetchResponse<T> {
-  data: T[];
+  count: number;
+  results: T[];
 }
 
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
@@ -14,10 +15,12 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
   useEffect(() => {
 
     const controller = new AbortController();
-console.log("endpoint: ", endpoint);
     apiClient
       .get<FetchResponse<T>>(endpoint, {signal: controller.signal, ...requestConfig})
-      .then(res => setData(res.data))
+      .then(res => {
+        console.log(res.data.results);
+        setData(res.data.results);
+      })
       .catch((err) => {
         if (err instanceof CanceledError) return;
         setError(err.message);
