@@ -108,8 +108,8 @@ Download and install git on your local machine. (https://git-scm.com/download)
 
 Initialize local git repository by executing below commands.
 
-    cd automobile-ecommerce
-    echo "# automobile-ecommerce" >> README.md
+    cd automobile-ecommerce-frontend
+    echo "# automobile-ecommerce-frontend" >> README.md
     git init
     git add .
 
@@ -121,7 +121,7 @@ Once the error is resolved, proceed with remaining commands.
 
     git commit -m "first commit"
     git branch -M main
-    git remote add origin https://github.com/<github account name>/automobile-ecommerce.git
+    git remote add origin https://github.com/<github account name>/automobile-ecommerce-frontend.git
     git push -u origin main
 
 ### Install required libraries
@@ -160,17 +160,41 @@ Install react icons library by executing below command.
 
 ## Implementation Details
 
-
-### Frontend
-
 ### User Interface
 
+The user interface is implemented using React with TypeScript. When a project is initialised using Vit, it creates a directory with files containing boilerplate code. Additional directories and files are created as per the project requirements.
 
+automobile-ecommerce-frontend
+    - src
+        - assets
+            CarLogo.jpg
+            CopyrightLogo.png
+        - components
+            CarCard.tsx
+            CarGrid.tsx
+            FilterCard.tsx
+            FilterList.tsx
+            Footer.tsx
+            ImageGallery.tsx
+            Like.tsx
+            NavBar.tsx
+        - config
+            config.json
+        - hooks
+            useCars.ts
+            useData.ts
+            useFilters.ts
+        - services
+            api-client.ts
+        App.css
+        App.tsx
+        index.css
+        main.tsx
+    index.html
+        
 ## Build and Deployment
 
 ### Build
-
-**Frontend**
 
 Once the coding and unit testing is completed locally, build the application using below commands.
 
@@ -181,18 +205,8 @@ Fix any errors encountered during build phase.
 
 Once the build command is successfully executed, the build artifacts will be created in /dist under project root directory. After that, final code base along with build should be pushed to GitHub.
 
-**Backend**
-
-Backend services such as Dynamodb, AWS Lambda and API Gateway do not need building as such. These services can be created using management console and can be unit tested. Once tested successfully, these can be deployed using CloudFormation.
-
 ### Deployment
-
-**Frontend**
 
 To deploy this project AWS Amplify is used.
 
 Login to AWS account and move to AWS Amplify console.
-
-**Backend**
-
-Use CloudFormation to deploy backend services.
