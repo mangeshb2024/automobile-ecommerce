@@ -1,14 +1,13 @@
 
-# Automobile ECommerce
+# Automobile ECommerce (Frontend)
 
 ## Table of Contents
 1. Introduction
 2. Overview of the functionality
 3. Tech Stack
-4. Setting up the development environment - Frontend
-5. Setting up the development environment - Backend
-6. Implementation Details
-7. Build and Deployment
+4. Setting up the development environment
+5. Implementation Details
+6. Build and Deployment
 
 ## Introduction <a name="introduction"></a>
 
@@ -19,6 +18,10 @@ Automobile ECommerce project is about allowing users to browse different kinds o
 ### Overview of the functionality
 
 The project aims to store car related information and provide mechanism to access that information as and when needed.
+
+This repository is for the frontend functionality of an end to end ecommerce project.
+For information on backend functionality, please follow the below URL.
+https://github.com/mangeshb2024/automobile-ecommerce-backend/edit/main/README.md
 
 Various aspectes of the functionality are described below.
 
